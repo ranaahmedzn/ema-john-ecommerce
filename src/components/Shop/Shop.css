@@ -8,14 +8,3 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 45px;
 }
-.cart-container{
-    text-align: center;
-}
-.cart-container h3{
-    padding: 3px 5px;
-    display: inline-block;
-    border-bottom: 2px solid black;
-}
-.cart-container p{
-    margin: 0;
-}
