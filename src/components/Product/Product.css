@@ -44,6 +44,6 @@
 }
 .btn-cart:hover{
     cursor: pointer;
-    background: orange;
+    background: rgba(255, 153, 0, 0.3);
     color: black;
 }
