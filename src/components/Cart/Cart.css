@@ -14,3 +14,20 @@
     font-size: 18px;
     margin: 0;
 }
+.btn-clear-cart{
+    padding: 13px;
+    font-size: 18px;
+    font-weight: 500;
+    width: 90%;
+    margin: 25px auto 13px;
+    background: #FF3030;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-clear-cart:hover{
+    cursor: pointer;
+}

@@ -13,15 +13,15 @@
     height: 91px;
     border-radius: 8px;
 }
-.product-info{
+.review-detail{
     padding: 0;
 }
-.product-info h6{
+.review-detail h6{
     margin: 0;
     font-size: 20px;
     font-weight: 500;
 }
-.product-info p{
+.review-detail p{
     margin: 10px 0;
     font-size: 15px;
 }

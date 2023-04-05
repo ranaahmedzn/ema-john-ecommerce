@@ -9,7 +9,7 @@ const ReviewItem = ({product, handleRemoveFromCart}) => {
     return (
         <div className='review-item'>
             <img src={img} alt="" />
-            <div className='product-info'>
+            <div className='review-detail'>
                 <h6>{name}</h6>
                 <p>Price: <span className='orange-text'>${price}</span></p>
                 <p>Shipping Charge: <span className='orange-text'>${shipping}</span></p>
