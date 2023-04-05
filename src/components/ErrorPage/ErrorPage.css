@@ -1,0 +1,18 @@
+.error-page{
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-message{
+    font-size: 50px;
+    font-weight: 600;
+    color: #2A414F;
+    ;
+}
+.line{
+    border: 3px solid #FF9900;
+    transform: rotate(90deg);
+    margin: 0 25px;
+}
