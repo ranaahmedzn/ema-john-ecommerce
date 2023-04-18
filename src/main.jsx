@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import cartProductsLoader from './loaders/cartProductsLoader';
 import Checkout from './components/Checkout/Checkout';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import SignUp from './components/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <ErrorPage />
+      },
+      {
+        path: '/signup',
+        element: <SignUp />
       }
     ]
   }
