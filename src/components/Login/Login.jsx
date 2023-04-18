@@ -1,19 +1,22 @@
 import React, { useContext, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import "./Login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/google.png";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
+  const [show, setShow] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
-  const {signIn} = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation()
 
   const from = location.state?.from.pathname || '/'
-  
-  const handleLogin = (event) =>{
+
+  const handleLogin = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -22,17 +25,17 @@ const Login = () => {
     console.log(email, password)
 
     signIn(email, password)
-    .then(result => {
-      const loggedUser = result.user;
-      console.log(loggedUser)
-      form.reset()
-      setSuccess("Login successful!!")
-      navigate(from)
-    })
-    .catch(error => {
-      console.log(error)
-      setError(error.message)
-    })
+      .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser)
+        form.reset()
+        setSuccess("Login successful!!")
+        navigate(from)
+      })
+      .catch(error => {
+        console.log(error)
+        setError(error.message)
+      })
 
 
   }
@@ -47,7 +50,16 @@ const Login = () => {
         </div>
         <div className="form-control">
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" id="password" required />
+          <input type={show ? "text" : "password"} name="password" id="password" required />
+
+          {/* show / hide password */}
+          <span className="show-icon" onClick={() => setShow(!show)}>
+            {
+              show ?
+                <FontAwesomeIcon icon={faEyeSlash} />
+                : <FontAwesomeIcon icon={faEye} />
+            }
+          </span>
         </div>
         <p className="error-text">
           {
