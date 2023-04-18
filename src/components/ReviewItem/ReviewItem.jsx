@@ -5,7 +5,7 @@ import './ReviewItem.css'
 
 const ReviewItem = ({product, handleRemoveFromCart}) => {
     const {id, name, price, img, shipping} = product
-    console.log(product)
+    // console.log(product)
     return (
         <div className='review-item'>
             <img src={img} alt="" />
