@@ -27,10 +27,10 @@ const Header = () => {
                     <Link to="/inventory">Inventory</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/signup">Sign Up</Link>
-                    {user && <span>
-                        Welcome, {user.displayName}
-                        <button onClick={handleLogOut}>Sign Out</button>
-                    </span>}
+                    {user && <div className='user-and-sign-out'>
+                        <span>Welcome, {user.email}</span>
+                        <button className='btn-sign-out' onClick={handleLogOut}>Sign Out</button>
+                    </div>}
                 </div>
             </nav>
         </div>

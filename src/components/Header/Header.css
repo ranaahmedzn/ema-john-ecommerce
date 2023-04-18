@@ -14,3 +14,23 @@ nav.header a {
 nav.header a:hover{
     color: orange;
 }
+
+.user-and-sign-out{
+    display: inline-block;
+    margin-left: 30px;
+}
+.user-and-sign-out span{
+    color: white;
+    margin-right: 10px;
+}
+.btn-sign-out{
+    padding: 12px 7px;
+    background: #FFE0B3;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+}
+.btn-sign-out:hover{
+    cursor: pointer;
+}

@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const SignUp = () => {
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const {createUser} = useContext(AuthContext)
 
   const handleSignUp = (event) => {
@@ -20,15 +21,19 @@ const SignUp = () => {
     // validation password
     if(password !== confirm){
       setError("Your password did not matched!")
+      return;
     }
     else if(password.length < 6){
       setError("Password must be 6 character or longer!")
+      return;
     }
 
     createUser(email, password)
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser)
+      form.reset()
+      setSuccess("Successfully created user!!")
     })
     .catch(error => {
       console.log(error)
@@ -57,6 +62,11 @@ const SignUp = () => {
         <p className="error-text">
           {
             error ? error : ''
+          }
+        </p>
+        <p className="success-text">
+          {
+            success ? success : ''
           }
         </p>
         <input className="btn-submit" type="submit" value="Sign Up" />

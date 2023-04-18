@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/google.png";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const {signIn} = useContext(AuthContext)
+  const navigate = useNavigate()
   
   const handleLogin = (event) =>{
     event.preventDefault();
@@ -20,6 +22,9 @@ const Login = () => {
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser)
+      form.reset()
+      setSuccess("Login successful!!")
+      navigate('/')
     })
     .catch(error => {
       console.log(error)
@@ -44,6 +49,11 @@ const Login = () => {
         <p className="error-text">
           {
             error ? error : ''
+          }
+        </p>
+        <p className="success-text">
+          {
+            success ? success : ''
           }
         </p>
         <input className="btn-submit" type="submit" value="Login" />
