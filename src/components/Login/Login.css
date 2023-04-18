@@ -1,0 +1,98 @@
+.form-container{
+    width: 500px;
+    height: 100%;
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    margin: 25px auto;
+    padding: 0 40px 40px;
+
+    box-shadow: -12px 12px #FFE0B3;
+}
+.form-title{
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    letter-spacing: 0.0025em;
+    color: #2A414F;
+    text-align: center;
+}
+.form-control{
+    margin-bottom: 20px;
+}
+.form-control label {
+    display: block;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    color: #2A414F;
+    margin-bottom: 10px;
+}
+.form-control input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 20px;
+}
+
+.btn-submit{
+    width: 100%;
+    height: 50px;
+    background: rgba(255, 153, 0, 0.3);
+    border-radius: 5px;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    color: #0E161A;
+    border: none;
+    margin-top: 20px;
+}
+.btn-submit:hover{
+    cursor: pointer;
+    background-color: rgba(255, 153, 0, 0.74);
+}
+.form-question{
+    text-align: center;
+    font-size: 15px;
+    color: #2A414F;
+}
+.form-question a{
+    text-decoration: none;
+    color: #FF9900;
+}
+.form-question a:hover{
+    text-decoration: underline;
+}
+.or-line{
+    margin: 30px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.or-line span{
+    width: 145px;
+    border-bottom: 1px solid #95A0A7;
+}
+.continue-with-google{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+}
+.continue-with-google img{
+    width: 30px;
+}
+.continue-with-google span{
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    color: #2A414F;
+}
