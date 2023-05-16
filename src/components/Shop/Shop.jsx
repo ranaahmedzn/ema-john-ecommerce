@@ -5,17 +5,31 @@ import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fa
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
 
+    const [productsPerPage, setProductsPerPage] = useState(10)
+    const [currentPage, setCurrentPage] = useState(0)
+    const { totalProducts } = useLoaderData()
+    const pages = Math.ceil(totalProducts / productsPerPage)
+
+    const pagesNumber = [...Array(pages).keys()]
+    console.log(pagesNumber)
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/products')
+    //         .then(res => res.json())
+    //         .then(data => setProducts(data))
+    // }, [])
+
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?page=${currentPage}&size=${productsPerPage}`)
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, [currentPage, productsPerPage])
 
     useEffect(() => {
         const storedCart = getShoppingCart()
@@ -62,32 +76,57 @@ const Shop = () => {
         deleteShoppingCart()
     }
 
+    const options = [5, 10, 15, 20]
+
+    const handleSelectedPage = (event) => {
+        setProductsPerPage(event.target.value)
+        setCurrentPage(0)
+    }
     return (
-        <div className='shop-container'>
-            <div className='products-container'>
-                {
-                    products.map(product => <Product
-                        key={product._id}
-                        product={product}
-                        handleAddToCart={handleAddToCart}
-                    ></Product>)
-                }
+        <>
+            <div className='shop-container'>
+                <div className='products-container'>
+                    {
+                        products.map(product => <Product
+                            key={product._id}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
+                        ></Product>)
+                    }
+                </div>
+
+                <div className='cart-container'>
+                    <Cart
+                        cart={cart}
+                        handleClearCart={handleClearCart}
+                    >
+                        <Link className='review-link' to='/orders'>
+                            <button className='btn-review-order'>
+                                <span>Review Order</span>
+                                <FontAwesomeIcon icon={faArrowRight} />
+                            </button>
+                        </Link>
+                    </Cart>
+                </div>
             </div>
 
-            <div className='cart-container'>
-                <Cart
-                    cart={cart}
-                    handleClearCart={handleClearCart}
-                >
-                    <Link className='review-link' to='/orders'>
-                        <button className='btn-review-order'>
-                            <span>Review Order</span>
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </button>
-                    </Link>
-                </Cart>
+            <div className='pagination'>
+                <p>Current Page: {currentPage + 1}</p>
+                {
+                    pagesNumber.map(number => <button key={number}
+                        onClick={() => setCurrentPage(number)}
+                        className={number === currentPage ? 'selected' : ''}
+                    >{number + 1}</button>)
+                }
+                <select value={productsPerPage} onChange={handleSelectedPage}>
+                    {
+                        options.map(option => <option key={option}>
+                            {option}
+                        </option>)
+                    }
+                </select>
             </div>
-        </div>
+        </>
     );
 };
 
