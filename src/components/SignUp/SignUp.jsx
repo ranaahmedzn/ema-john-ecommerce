@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
-import google from "../../assets/google.png";
 import { AuthContext } from "../../providers/AuthProviders";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const [error, setError] = useState('')
@@ -82,10 +82,7 @@ const SignUp = () => {
         Or
         <span></span>
       </p>
-      <div className="continue-with-google">
-        <img src={google} alt="" />
-        <span>Continue with Google</span>
-      </div>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };

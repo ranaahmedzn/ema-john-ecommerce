@@ -98,6 +98,11 @@
   justify-content: center;
   align-items: center;
   padding: 12px 0;
+  background-image: transparent;
+}
+.continue-with-google:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, rgba(255, 162, 239, 0.192), rgba(94, 150, 255, 0.178));
 }
 .continue-with-google img {
   width: 30px;

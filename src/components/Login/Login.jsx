@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import "./Login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import google from "../../assets/google.png";
 import { AuthContext } from "../../providers/AuthProviders";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const [show, setShow] = useState(false)
@@ -84,10 +84,7 @@ const Login = () => {
         Or
         <span></span>
       </p>
-      <div className="continue-with-google">
-        <img src={google} alt="" />
-        <span>Continue with Google</span>
-      </div>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };
