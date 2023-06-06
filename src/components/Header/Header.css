@@ -15,6 +15,10 @@ nav.header a:hover{
     color: orange;
 }
 
+nav.header a.active {
+    color: orange;
+}
+
 .user-and-sign-out{
     display: inline-block;
     margin-left: 30px;

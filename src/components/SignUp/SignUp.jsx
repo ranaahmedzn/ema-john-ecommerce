@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
@@ -8,6 +8,7 @@ const SignUp = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const {createUser} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const handleSignUp = (event) => {
     event.preventDefault()
@@ -34,6 +35,7 @@ const SignUp = () => {
       console.log(loggedUser)
       form.reset()
       setSuccess("Successfully created user!!")
+      navigate('/')
     })
     .catch(error => {
       console.log(error)

@@ -34,10 +34,12 @@ const Shop = () => {
     useEffect(() => {
         const storedCart = getShoppingCart()
         const ids = Object.keys(storedCart)
+        const token = localStorage.getItem('emajohn-access-token')
 
         fetch("http://localhost:5000/products-by-ids", {
             method: 'POST',
             headers: {
+                authorization: `Bearer ${token}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(ids)
